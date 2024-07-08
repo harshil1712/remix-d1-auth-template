@@ -1,8 +1,10 @@
-import type { MetaFunction } from "@remix-run/cloudflare";
+import type { LoaderFunctionArgs, MetaFunction } from "@remix-run/cloudflare";
+import { json, Link, useLoaderData } from "@remix-run/react";
+import { SessionStorage } from "~/services/session.server";
 
 export const meta: MetaFunction = () => {
   return [
-    { title: "New Remix App" },
+    { title: "Remix Cloudflare D1 Auth Demo" },
     {
       name: "description",
       content: "Welcome to Remix on Cloudflare!",
@@ -10,7 +12,14 @@ export const meta: MetaFunction = () => {
   ];
 };
 
+export async function loader({ request, context }: LoaderFunctionArgs) {
+  let user = await SessionStorage.readUser(context, request)
+  if (!user) return json({ isAuth: false })
+  return json({ isAuth: true })
+}
+
 export default function Index() {
+  const { isAuth } = useLoaderData<typeof loader>();
   return (
     <div className="font-sans p-4">
       <h1 className="text-3xl">Welcome to Remix on Cloudflare</h1>
@@ -36,6 +45,7 @@ export default function Index() {
           </a>
         </li>
       </ul>
+      {!isAuth && <Link to="/auth/login">Login</Link>}
     </div>
   );
 }

@@ -1,5 +1,5 @@
 {
-  "name": "euro-votes-app",
+  "name": "remix-d1-auth-template",
   "private": true,
   "sideEffects": false,
   "type": "module",
@@ -15,12 +15,16 @@
     "cf-typegen": "wrangler types"
   },
   "dependencies": {
+    "@prisma/adapter-d1": "^5.16.1",
+    "@prisma/client": "^5.16.1",
     "@remix-run/cloudflare": "^2.9.2",
     "@remix-run/cloudflare-pages": "^2.9.2",
     "@remix-run/react": "^2.9.2",
     "isbot": "^4.1.0",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "remix-auth": "^3.7.0",
+    "remix-auth-github": "^1.7.0"
   },
   "devDependencies": {
     "@cloudflare/workers-types": "^4.20240620.0",
@@ -37,6 +41,8 @@
     "eslint-plugin-react": "^7.33.2",
     "eslint-plugin-react-hooks": "^4.6.0",
     "postcss": "^8.4.38",
+    "prisma": "^5.16.1",
+    "remix-flat-routes": "^0.6.5",
     "tailwindcss": "^3.4.4",
     "typescript": "^5.1.6",
     "vite": "^5.1.0",
