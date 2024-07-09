@@ -27,8 +27,8 @@ pages_build_output_dir = "./build/client"
 # Docs: https://developers.cloudflare.com/pages/functions/bindings/#d1-databases
 [[d1_databases]]
 binding = "DB"
-database_name = "prisma-demo-db"
-database_id = "a1c6810e-27a7-4820-b6c7-75bc8e60c007"
+database_name = "remix-auth-demo"
+database_id = "8fa21938-07d1-4dee-9596-70f8a1f0cb69"
 
 # Bind a Durable Object. Durable objects are a scale-to-zero compute primitive based on the actor model.
 # Durable Objects can live for as long as needed. Use these when you need a long-running "server", such as in realtime apps.
